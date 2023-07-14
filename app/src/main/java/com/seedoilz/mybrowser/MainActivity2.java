@@ -44,9 +44,8 @@ public class MainActivity2 extends AppCompatActivity {
         mFragments.add(new user());
 
         mtitle=new ArrayList<String>();
-        mtitle.add("信息");
-        mtitle.add("联系人");
-        mtitle.add("发现");
+        mtitle.add("主页");
+        mtitle.add("视频");
         mtitle.add("我的");
 
         //实例化适配器
@@ -65,17 +64,13 @@ public class MainActivity2 extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        Toast.makeText(MainActivity2.this, "这是信息", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity2.this, "这是主页", Toast.LENGTH_SHORT).show();
                         break;
 
                     case 1:
-                        Toast.makeText(MainActivity2.this, "这是联系人", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity2.this, "这是视频", Toast.LENGTH_SHORT).show();
                         break;
-
                     case 2:
-                        Toast.makeText(MainActivity2.this, "这是发现", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
                         Toast.makeText(MainActivity2.this, "这是我的", Toast.LENGTH_SHORT).show();
                         break;
                 }
