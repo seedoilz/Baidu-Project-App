@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser.bottombar;
+package com.seedoilz.mybrowser.adapter;
 
 
 

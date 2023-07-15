@@ -1,5 +1,6 @@
 package com.seedoilz.mybrowser;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -10,7 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-import com.seedoilz.mybrowser.bottombar.BarAdapter;
+import com.seedoilz.mybrowser.adapter.BarAdapter;
 import com.seedoilz.mybrowser.bottombar.home;
 import com.seedoilz.mybrowser.bottombar.user;
 import com.seedoilz.mybrowser.bottombar.video;
@@ -20,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private List<Fragment> mFragments;   //存放视图
     private ViewPager viewPager;
@@ -64,14 +65,16 @@ public class MainActivity2 extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        Toast.makeText(MainActivity2.this, "这是主页", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(MainActivity.this, "这是主页", Toast.LENGTH_SHORT).show();
                         break;
 
                     case 1:
-                        Toast.makeText(MainActivity2.this, "这是视频", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "这是视频", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(MainActivity2.this, "这是我的", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(MainActivity.this, "这是我的", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

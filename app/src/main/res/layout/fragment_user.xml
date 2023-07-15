@@ -1,18 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mq.bottomtoobar3.me">
+        android:padding="16dp">
 
-        <ImageView
+        <!-- User Information Layout -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    </FrameLayout>
+            <!-- User Profile Picture -->
+            <ImageView
+                android:id="@+id/userProfilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/default_user"
+                android:src="@drawable/user_default" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- User Text Information Layout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- User Name -->
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/default_user"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <!-- User Email -->
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="尚未验证邮箱"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <!-- Other User Info -->
+                <!-- Add Other TextViews For Additional User Information -->
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Other Layout Elements -->
+        <!-- Add Other Layout Elements As Required -->
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/tablayout" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+    </com.google.android.material.tabs.TabLayout>
+
+
+</RelativeLayout>
+
