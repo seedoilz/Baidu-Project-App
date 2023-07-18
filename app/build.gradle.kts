@@ -48,4 +48,6 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.github.bumptech.glide:glide:4.9.0")
     implementation("com.google.android.exoplayer:exoplayer:2.14.0")
+    implementation("com.scwang.smartrefresh:SmartRefreshLayout:1.1.2")
+    implementation("com.scwang.smartrefresh:SmartRefreshHeader:1.1.2")
 }
