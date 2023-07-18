@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.seedoilz.mybrowser.R;
-import com.seedoilz.mybrowser.WeatherActivity;
+import com.seedoilz.mybrowser.ui.MainActivity;
 
 public class home extends Fragment {
 
@@ -29,7 +29,7 @@ public class home extends Fragment {
         weatherTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });

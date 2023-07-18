@@ -1,18 +1,13 @@
 package com.seedoilz.mybrowser;
 
-import android.content.Intent;
 import android.os.Bundle;
-
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.seedoilz.mybrowser.adapter.BarAdapter;
@@ -36,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.seedoilz.mybrowser.R.layout.activity_main);
 
         initView();
     }
 
     private void initView() {
-        mTabLayout = findViewById(R.id.tablayout);
-        viewPager = findViewById(R.id.viewpager);
+        mTabLayout = findViewById(com.seedoilz.mybrowser.R.id.tablayout);
+        viewPager = findViewById(com.seedoilz.mybrowser.R.id.viewpager);
 
         mFragments=new ArrayList<Fragment>();
         mFragments.add(new home());
@@ -97,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
         // TODO
         // video标题数据获取
         ArrayList<Video> videos = new ArrayList<>();
-        videos.add(new Video("Video 1", "https://i0.hdslb.com/bfs/archive/ffe9ca68c239b4f2523e43211ae1b516259ebd20.jpg@672w_378h_1c_!web-home-common-cover", "https://box.nju.edu.cn/seafhttp/files/8ebb0f9c-7d9d-481c-a19c-6e320cdc2915/Base%20Profile%202023.06.18%20-%2013.03.17.02.DVR.mp4"));
+        videos.add(new Video("Video 1", "https://i0.hdslb.com/bfs/archive/ffe9ca68c239b4f2523e43211ae1b516259ebd20.jpg@672w_378h_1c_!web-home-common-cover", "https://box.nju.edu.cn/seafhttp/files/3443e8f1-13b8-4b5b-a9d9-872b2e3ff0f4/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
         videos.add(new Video("Video 2", "http://example.com/thumbnail2.jpg", "http://example.com/video2.mp4"));
         videos.add(new Video("Video 3", "http://example.com/thumbnail3.jpg", "http://example.com/video3.mp4"));
         videos.add(new Video("Video 4", "http://example.com/thumbnail4.jpg", "http://example.com/video4.mp4"));
 
         VideoAdapter videoAdapter = new VideoAdapter(videos);
 
-        RecyclerView recyclerView = findViewById(R.id.video_recycler_view);
+        RecyclerView recyclerView = findViewById(com.seedoilz.mybrowser.R.id.video_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(videoAdapter);
 
