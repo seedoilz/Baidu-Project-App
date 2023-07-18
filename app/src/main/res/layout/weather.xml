@@ -348,7 +348,8 @@
                         android:id="@+id/rv_hourly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="12dp" />
+                        android:padding="12dp"
+                        tools:listitem="@layout/item_weather_forecast_list"/>
 
                     <!--用于显示天气预报数据-->
                     <androidx.recyclerview.widget.RecyclerView
@@ -356,7 +357,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="8dp"
-                        android:paddingRight="8dp" />
+                        android:paddingRight="8dp"
+                        tools:listitem="@layout/item_weather_forecast_list"/>
 
 <!--                    &lt;!&ndash;查看更多天气预报&ndash;&gt;-->
 <!--                    <TextView-->

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.ir.backend.js.compile
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
@@ -41,7 +43,10 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation(files("libs/QWeather_Public_Android_V4.17.jar"))
     testImplementation(libs.junit)
+    implementation("com.squareup.okhttp3:okhttp:3.12.12")
+    implementation("com.google.code.gson:gson:2.6.2")
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.google.android.material:material:1.0.0")
