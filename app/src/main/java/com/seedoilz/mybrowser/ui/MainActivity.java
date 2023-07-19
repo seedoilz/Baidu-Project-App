@@ -27,7 +27,6 @@ import com.seedoilz.mybrowser.location.GoodLocation;
 import com.seedoilz.mybrowser.ui.adapter.DailyAdapter;
 import com.seedoilz.mybrowser.ui.adapter.HourlyAdapter;
 import com.seedoilz.mybrowser.db.bean.DailyResponse;
-import com.seedoilz.mybrowser.db.bean.LifestyleResponse;
 import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.mybrowser.db.bean.SearchCityResponse;
 import com.seedoilz.mybrowser.location.LocationCallback;
@@ -53,8 +52,6 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
     //天气预报数据和适配器
     private final List<DailyResponse.DailyBean> dailyBeanList = new ArrayList<>();
     private final DailyAdapter dailyAdapter = new DailyAdapter(dailyBeanList);
-    //生活指数数据和适配器
-    private final List<LifestyleResponse.DailyBean> lifestyleList = new ArrayList<>();
     //逐小时天气预报数据和适配器
     private final List<HourlyResponse.HourlyBean> hourlyBeanList = new ArrayList<>();
     private final HourlyAdapter hourlyAdapter = new HourlyAdapter(hourlyBeanList);
