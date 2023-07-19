@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.seedoilz.mybrowser.db.bean.BingResponse;
 import com.seedoilz.mybrowser.db.bean.Province;
-import com.seedoilz.mybrowser.repository.BingRepository;
 import com.seedoilz.mybrowser.repository.CityRepository;
 import com.seedoilz.library.base.BaseViewModel;
 
@@ -35,10 +34,4 @@ public class SplashViewModel extends BaseViewModel {
         CityRepository.getInstance().getCityData(listMutableLiveData);
     }
 
-    /**
-     * 必应壁纸
-     */
-    public void bing() {
-        BingRepository.getInstance().bing(bingResponseMutableLiveData, failed);
-    }
 }

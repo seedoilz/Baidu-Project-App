@@ -61,8 +61,6 @@ public class SplashActivity extends NetworkActivity<ActivitySplashBinding> {
         //满足更新启动时间的条件，1.为0表示没有保存过时间，2. 保存时间是否为今天
         if (todayFirstRunTime == 0 || !EasyDate.isToday(todayFirstRunTime)) {
             MVUtils.put(Constant.FIRST_STARTUP_TIME_TODAY, currentTimeMillis);
-            //今天第一次启动要做的事情
-            viewModel.bing();
         }
     }
 

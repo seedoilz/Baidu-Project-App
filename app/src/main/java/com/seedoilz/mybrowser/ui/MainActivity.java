@@ -162,8 +162,6 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
         mMenu = menu;
         //根据cityFlag设置重新定位菜单项是否显示
         mMenu.findItem(R.id.item_relocation).setVisible(cityFlag == 1);
-        //根据使用必应壁纸的状态，设置item项是否选中
-        mMenu.findItem(R.id.item_bing).setChecked(MVUtils.getBoolean(Constant.USED_BING));
         return true;
     }
 
@@ -179,13 +177,6 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
                 break;
             case R.id.item_relocation:
                 startLocation();//点击重新定位item时，再次定位一下。
-                break;
-            case R.id.item_bing:
-                item.setChecked(!item.isChecked());
-                MVUtils.put(Constant.USED_BING, item.isChecked());
-                String bingUrl = MVUtils.getString(Constant.BING_URL);
-                //更新壁纸
-                updateBgImage(item.isChecked(), bingUrl);
                 break;
         }
         return true;
