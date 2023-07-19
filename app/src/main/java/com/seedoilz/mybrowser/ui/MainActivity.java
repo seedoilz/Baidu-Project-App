@@ -26,12 +26,10 @@ import com.seedoilz.mybrowser.db.bean.HourlyResponse;
 import com.seedoilz.mybrowser.location.GoodLocation;
 import com.seedoilz.mybrowser.ui.adapter.DailyAdapter;
 import com.seedoilz.mybrowser.ui.adapter.HourlyAdapter;
-import com.seedoilz.mybrowser.ui.adapter.LifestyleAdapter;
 import com.seedoilz.mybrowser.db.bean.DailyResponse;
 import com.seedoilz.mybrowser.db.bean.LifestyleResponse;
 import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.mybrowser.db.bean.SearchCityResponse;
-import com.seedoilz.mybrowser.databinding.ActivityMainBinding;
 import com.seedoilz.mybrowser.location.LocationCallback;
 import com.seedoilz.mybrowser.utils.CityDialog;
 import com.seedoilz.mybrowser.utils.EasyDate;
@@ -57,7 +55,6 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
     private final DailyAdapter dailyAdapter = new DailyAdapter(dailyBeanList);
     //生活指数数据和适配器
     private final List<LifestyleResponse.DailyBean> lifestyleList = new ArrayList<>();
-    private final LifestyleAdapter lifestyleAdapter = new LifestyleAdapter(lifestyleList);
     //逐小时天气预报数据和适配器
     private final List<HourlyResponse.HourlyBean> hourlyBeanList = new ArrayList<>();
     private final HourlyAdapter hourlyAdapter = new HourlyAdapter(hourlyBeanList);
@@ -124,9 +121,6 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
         //天气预报列表
         binding.rvDaily.setLayoutManager(new LinearLayoutManager(this));
         binding.rvDaily.setAdapter(dailyAdapter);
-        //生活指数列表
-        binding.rvLifestyle.setLayoutManager(new LinearLayoutManager(this));
-        binding.rvLifestyle.setAdapter(lifestyleAdapter);
         //逐小时天气预报列表
         LinearLayoutManager hourlyLayoutManager = new LinearLayoutManager(this);
         hourlyLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
@@ -289,17 +283,7 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
                     binding.tvLow.setText(String.format(" / %s℃", daily.get(0).getTempMin()));
                 }
             });
-            //生活指数返回
-            viewModel.lifestyleResponseMutableLiveData.observe(this, lifestyleResponse -> {
-                List<LifestyleResponse.DailyBean> daily = lifestyleResponse.getDaily();
-                if (daily != null) {
-                    if (lifestyleList.size() > 0) {
-                        lifestyleList.clear();
-                    }
-                    lifestyleList.addAll(daily);
-                    lifestyleAdapter.notifyDataSetChanged();
-                }
-            });
+
             //获取本地城市数据返回
             viewModel.cityMutableLiveData.observe(this, provinces -> {
                 //城市弹窗初始化
