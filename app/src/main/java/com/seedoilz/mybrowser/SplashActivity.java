@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser.ui;
+package com.seedoilz.mybrowser;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
@@ -6,7 +6,6 @@ import android.util.Log;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import com.seedoilz.mybrowser.Constant;
 import com.seedoilz.mybrowser.databinding.ActivitySplashBinding;
 import com.seedoilz.mybrowser.db.bean.Province;
 import com.seedoilz.mybrowser.utils.EasyDate;
@@ -39,7 +38,7 @@ public class SplashActivity extends NetworkActivity<ActivitySplashBinding> {
         checkingStartup();
         //检查今天第一次运行
         checkFirstRunToday();
-        new Handler().postDelayed(() -> jumpActivityFinish(MainActivity.class), 1000);
+        new Handler().postDelayed(() -> jumpActivityFinish(WeatherActivity.class), 300);
     }
 
     /**

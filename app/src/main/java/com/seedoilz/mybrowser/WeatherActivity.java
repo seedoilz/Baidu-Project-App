@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser.ui;
+package com.seedoilz.mybrowser;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -19,8 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.baidu.location.BDLocation;
-import com.seedoilz.mybrowser.Constant;
-import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.databinding.WeatherBinding;
 import com.seedoilz.mybrowser.db.bean.HourlyResponse;
 import com.seedoilz.mybrowser.location.GoodLocation;
@@ -40,7 +38,7 @@ import com.seedoilz.library.base.NetworkActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends NetworkActivity<WeatherBinding> implements LocationCallback, CityDialog.SelectedCityCallback {
+public class WeatherActivity extends NetworkActivity<WeatherBinding> implements LocationCallback, CityDialog.SelectedCityCallback {
 
     //权限数组
     private final String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -146,6 +144,13 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
                     //改回原来的
                     binding.tvTitle.setText("城市天气");
                 }
+            }
+        });
+        View backView = findViewById(R.id.back_image);
+        backView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }
@@ -275,7 +280,7 @@ public class MainActivity extends NetworkActivity<WeatherBinding> implements Loc
             //获取本地城市数据返回
             viewModel.cityMutableLiveData.observe(this, provinces -> {
                 //城市弹窗初始化
-                cityDialog = CityDialog.getInstance(MainActivity.this, provinces);
+                cityDialog = CityDialog.getInstance(WeatherActivity.this, provinces);
                 cityDialog.setSelectedCityCallback(this);
             });
             //逐小时天气预报

@@ -12,12 +12,13 @@ import com.seedoilz.mybrowser.repository.CityRepository;
 import com.seedoilz.mybrowser.repository.SearchCityRepository;
 import com.seedoilz.mybrowser.repository.WeatherRepository;
 import com.seedoilz.library.base.BaseViewModel;
+import com.seedoilz.mybrowser.WeatherActivity;
 
 import java.util.List;
 
 /**
  * 主页面ViewModel
- * {@link com.seedoilz.mybrowser.ui.MainActivity}
+ * {@link WeatherActivity}
  */
 public class MainViewModel extends BaseViewModel {
 

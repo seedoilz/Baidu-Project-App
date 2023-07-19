@@ -43,7 +43,7 @@ android {
     sourceSets{
         main{
             jniLibs.srcDir 'libs'
-            jni.srcDirs = []    //disable automatic ndk-build
+            //disable automatic ndk-build
         }
     }
 }

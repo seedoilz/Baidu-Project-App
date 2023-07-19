@@ -7,16 +7,28 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_bg"
     android:fitsSystemWindows="true"
-    tools:context=".ui.MainActivity">
+    tools:context=".WeatherActivity">
     <!--顶部标题-->
+
+    <!--下拉刷新视图-->
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_image"
+            android:layout_width="47dp"
+            android:layout_height="33dp"
+            app:srcCompat="@drawable/exo_ic_chevron_left"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -30,7 +42,6 @@
             android:textSize="@dimen/sp_16" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <!--下拉刷新视图-->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/lay_refresh"
         android:layout_width="match_parent"
@@ -233,4 +244,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

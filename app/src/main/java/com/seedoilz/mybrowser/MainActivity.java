@@ -66,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        Toast.makeText(MainActivity.this, "这是主页", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "这是主页", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
                         videoLoad();
-                        Toast.makeText(MainActivity.this, "这是视频", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "这是视频", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(MainActivity.this, "这是我的", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "这是我的", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

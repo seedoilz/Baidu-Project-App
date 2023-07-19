@@ -3,6 +3,7 @@ package com.seedoilz.mybrowser.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.seedoilz.mybrowser.SplashActivity;
 import com.seedoilz.mybrowser.db.bean.BingResponse;
 import com.seedoilz.mybrowser.db.bean.Province;
 import com.seedoilz.mybrowser.repository.CityRepository;
@@ -12,7 +13,7 @@ import java.util.List;
 
 /**
  * 启动页ViewModel
- * {@link com.seedoilz.mybrowser.ui.SplashActivity}
+ * {@link SplashActivity}
  */
 public class SplashViewModel extends BaseViewModel {
 
