@@ -54,10 +54,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths"/>
         </provider>
-
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="Fh0NIFb6Tg8f7altVIpdGoDH0BR2myG4" /> <!-- 添加定位服务 -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

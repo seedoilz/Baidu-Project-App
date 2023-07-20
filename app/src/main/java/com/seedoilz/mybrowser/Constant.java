@@ -8,7 +8,7 @@ public class Constant {
     /**
      * 和风天气的KEY，请使用自己的
      */
-    public final static String API_KEY = "d4a619bfe3244190bfa84bb468c14316";
+    public final static String API_KEY = "8b08f60f3075464cb01ecbb9dc0a8d72";
 
     /**
      * 和风天气接口请求成功状态码
@@ -25,14 +25,5 @@ public class Constant {
      */
     public static final String FIRST_STARTUP_TIME_TODAY = "firstStartupTimeToday";
 
-    /**
-     * 是否使用必应壁纸
-     */
-    public static final String USED_BING = "usedBing";
-
-    /**
-     * 必应图片地址
-     */
-    public static final String BING_URL = "bingUrl";
 
 }

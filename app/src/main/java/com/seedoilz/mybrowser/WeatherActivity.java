@@ -100,13 +100,6 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
         viewModel.getAllCity();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //更新壁纸
-        updateBgImage(MVUtils.getBoolean(Constant.USED_BING), MVUtils.getString(Constant.BING_URL));
-    }
-
     /**
      * 初始化页面视图
      */
@@ -184,19 +177,6 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
         return true;
     }
 
-    /**
-     * 更新壁纸
-     *
-     * @param usedBing 使用必应壁纸
-     * @param bingUrl  必应壁纸URL
-     */
-    private void updateBgImage(boolean usedBing, String bingUrl) {
-        if (usedBing && !bingUrl.isEmpty()) {
-            GlideUtils.loadImg(this, bingUrl, binding.layRoot);
-        } else {
-            binding.layRoot.setBackground(ContextCompat.getDrawable(this, R.drawable.main_bg));
-        }
-    }
 
     private void startLocation() {
         cityFlag = 0;
