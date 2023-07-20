@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         // TODO
         // video标题数据获取
         ArrayList<Video> videos = new ArrayList<>();
-        videos.add(new Video("Video 1", "https://i0.hdslb.com/bfs/archive/ffe9ca68c239b4f2523e43211ae1b516259ebd20.jpg@672w_378h_1c_!web-home-common-cover", "https://box.nju.edu.cn/seafhttp/files/3443e8f1-13b8-4b5b-a9d9-872b2e3ff0f4/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
+        videos.add(new Video("Video 1", "https://i0.hdslb.com/bfs/archive/ffe9ca68c239b4f2523e43211ae1b516259ebd20.jpg@672w_378h_1c_!web-home-common-cover", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
         videos.add(new Video("Video 2", "http://example.com/thumbnail2.jpg", "http://example.com/video2.mp4"));
         videos.add(new Video("Video 3", "http://example.com/thumbnail3.jpg", "http://example.com/video3.mp4"));
         videos.add(new Video("Video 4", "http://example.com/thumbnail4.jpg", "http://example.com/video4.mp4"));

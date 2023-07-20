@@ -7,9 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -20,9 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-
-import java.io.File;
 import java.io.IOException;
 
 public class PublishNewsActivity extends AppCompatActivity {
@@ -44,7 +39,7 @@ public class PublishNewsActivity extends AppCompatActivity {
         initView();
     }
 
-    private void initView(){
+    private void initView() {
         thumbnailImage = findViewById(R.id.thumbnail_image);
         headlineImage = findViewById(R.id.headline_image);
 
