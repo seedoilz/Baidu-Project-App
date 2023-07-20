@@ -219,8 +219,6 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
                         viewModel.nowWeather(id);
                         //通过城市ID查询天气预报
                         viewModel.dailyWeather(id);
-                        //通过城市ID查询生活指数
-                        viewModel.lifestyle(id);
                         //通过城市ID查询逐小时天气预报
                         viewModel.hourlyWeather(id);
                     }
@@ -238,8 +236,6 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
 
                     binding.tvWindDirection.setText(String.format("风向     %s", now.getWindDir()));//风向
                     binding.tvWindPower.setText(String.format("风力     %s级", now.getWindScale()));//风力
-//                    binding.wwBig.startRotate();//大风车开始转动
-//                    binding.wwSmall.startRotate();//小风车开始转动
                 }
             });
             //天气预报返回

@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.seedoilz.mybrowser.db.bean.DailyResponse;
 import com.seedoilz.mybrowser.db.bean.HourlyResponse;
-import com.seedoilz.mybrowser.db.bean.LifestyleResponse;
 import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.mybrowser.db.bean.Province;
 import com.seedoilz.mybrowser.db.bean.SearchCityResponse;
@@ -27,8 +26,6 @@ public class MainViewModel extends BaseViewModel {
     public MutableLiveData<NowResponse> nowResponseMutableLiveData = new MutableLiveData<>();
 
     public MutableLiveData<DailyResponse> dailyResponseMutableLiveData = new MutableLiveData<>();
-
-    public MutableLiveData<LifestyleResponse> lifestyleResponseMutableLiveData = new MutableLiveData<>();
 
     public MutableLiveData<List<Province>> cityMutableLiveData = new MutableLiveData<>();
 
@@ -61,14 +58,6 @@ public class MainViewModel extends BaseViewModel {
         WeatherRepository.getInstance().dailyWeather(dailyResponseMutableLiveData, failed, cityId);
     }
 
-    /**
-     * 生活指数
-     *
-     * @param cityId 城市ID
-     */
-    public void lifestyle(String cityId) {
-        WeatherRepository.getInstance().lifestyle(lifestyleResponseMutableLiveData, failed, cityId);
-    }
 
     /**
      * 获取行政区数据

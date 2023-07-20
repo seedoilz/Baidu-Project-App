@@ -9,7 +9,6 @@ import com.seedoilz.mybrowser.Constant;
 import com.seedoilz.mybrowser.api.ApiService;
 import com.seedoilz.mybrowser.db.bean.DailyResponse;
 import com.seedoilz.mybrowser.db.bean.HourlyResponse;
-import com.seedoilz.mybrowser.db.bean.LifestyleResponse;
 import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.library.network.ApiType;
 import com.seedoilz.library.network.NetworkApi;
@@ -107,32 +106,6 @@ public class WeatherRepository {
      * @param failed           错误信息
      * @param cityId           城市ID
      */
-    public void lifestyle(MutableLiveData<LifestyleResponse> responseLiveData,
-                             MutableLiveData<String> failed, String cityId) {
-        String type = "生活指数-->";
-        NetworkApi.createService(ApiService.class, ApiType.WEATHER).lifestyle("1,2,3,4,5,6,7,8,9", cityId)
-                .compose(NetworkApi.applySchedulers(new BaseObserver<>() {
-                    @Override
-                    public void onSuccess(LifestyleResponse lifestyleResponse) {
-                        if (lifestyleResponse == null) {
-                            failed.postValue("生活指数数据为null，请检查城市ID是否正确。");
-                            return;
-                        }
-                        //请求接口成功返回数据，失败返回状态码
-                        if (Constant.SUCCESS.equals(lifestyleResponse.getCode())) {
-                            responseLiveData.postValue(lifestyleResponse);
-                        } else {
-                            failed.postValue(type + lifestyleResponse.getCode());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Throwable e) {
-                        Log.e(TAG, "onFailure: " + e.getMessage());
-                        failed.postValue(type + e.getMessage());
-                    }
-                }));
-    }
 
     /**
      * 逐小时天气预报
