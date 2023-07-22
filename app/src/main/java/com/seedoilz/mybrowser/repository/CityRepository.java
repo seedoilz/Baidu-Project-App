@@ -4,7 +4,7 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.seedoilz.mybrowser.WeatherApp;
+import com.seedoilz.mybrowser.MyBrowserApp;
 import com.seedoilz.mybrowser.db.bean.Province;
 
 import java.util.List;
@@ -32,7 +32,7 @@ public class CityRepository {
      */
     public void addCityData(List<Province> cityList) {
         Province[] provinceArray = cityList.toArray(new Province[0]);
-        Completable insertAll = WeatherApp.getDb().provinceDao().insertAll(provinceArray);
+        Completable insertAll = MyBrowserApp.getDb().provinceDao().insertAll(provinceArray);
         CustomDisposable.addDisposable(insertAll, () -> Log.d(TAG, "addCityData: 插入数据成功。"));
     }
 
@@ -40,7 +40,7 @@ public class CityRepository {
      * 获取城市数据
      */
     public void getCityData(MutableLiveData<List<Province>> listMutableLiveData) {
-        Flowable<List<Province>> listFlowable = WeatherApp.getDb().provinceDao().getAll();
+        Flowable<List<Province>> listFlowable = MyBrowserApp.getDb().provinceDao().getAll();
         CustomDisposable.addDisposable(listFlowable, listMutableLiveData::postValue);
     }
 }

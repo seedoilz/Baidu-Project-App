@@ -21,7 +21,6 @@ public abstract class BaseVBActivity<VB extends ViewBinding> extends BaseActivit
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        onRegister();
         super.onCreate(savedInstanceState);
         Type type = this.getClass().getGenericSuperclass();
         if (type instanceof ParameterizedType) {
@@ -36,10 +35,6 @@ public abstract class BaseVBActivity<VB extends ViewBinding> extends BaseActivit
             setContentView(binding.getRoot());
         }
         initData();
-    }
-
-    protected void onRegister() {
-
     }
 
     protected abstract void initData();

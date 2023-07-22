@@ -7,7 +7,7 @@ import com.seedoilz.library.base.BaseApplication;
 import com.seedoilz.library.network.NetworkApi;
 import com.tencent.mmkv.MMKV;
 
-public class WeatherApp extends BaseApplication {
+public class MyBrowserApp extends BaseApplication {
 
     //数据库
     private static AppDatabase db;

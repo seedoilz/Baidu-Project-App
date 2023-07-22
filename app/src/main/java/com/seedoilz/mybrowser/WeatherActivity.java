@@ -11,39 +11,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.baidu.location.BDLocation;
 import com.seedoilz.mybrowser.databinding.WeatherBinding;
 import com.seedoilz.mybrowser.db.bean.HourlyResponse;
-import com.seedoilz.mybrowser.location.GoodLocation;
 import com.seedoilz.mybrowser.ui.adapter.DailyAdapter;
 import com.seedoilz.mybrowser.ui.adapter.HourlyAdapter;
 import com.seedoilz.mybrowser.db.bean.DailyResponse;
 import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.mybrowser.db.bean.SearchCityResponse;
-import com.seedoilz.mybrowser.location.LocationCallback;
 import com.seedoilz.mybrowser.utils.CityDialog;
 import com.seedoilz.mybrowser.utils.EasyDate;
-import com.seedoilz.mybrowser.utils.GlideUtils;
-import com.seedoilz.mybrowser.utils.MVUtils;
 import com.seedoilz.mybrowser.viewmodel.MainViewModel;
 import com.seedoilz.library.base.NetworkActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherActivity extends NetworkActivity<WeatherBinding> implements LocationCallback, CityDialog.SelectedCityCallback {
+public class WeatherActivity extends NetworkActivity<WeatherBinding> implements CityDialog.SelectedCityCallback {
 
-    //权限数组
-    private final String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    //请求权限意图
-    private ActivityResultLauncher<String[]> requestPermissionIntent;
 
     private MainViewModel viewModel;
 
@@ -55,8 +44,7 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
     private final HourlyAdapter hourlyAdapter = new HourlyAdapter(hourlyBeanList);
     //城市弹窗
     private CityDialog cityDialog;
-    //定位
-    private GoodLocation goodLocation;
+
     //菜单
     private Menu mMenu;
     //城市信息来源标识  0: 定位， 1: 切换城市
@@ -67,31 +55,14 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
     private boolean isRefresh;
 
     /**
-     * 注册意图
-     */
-    @Override
-    public void onRegister() {
-        //请求权限意图
-        requestPermissionIntent = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
-            boolean fineLocation = Boolean.TRUE.equals(result.get(Manifest.permission.ACCESS_FINE_LOCATION));
-            boolean writeStorage = Boolean.TRUE.equals(result.get(Manifest.permission.WRITE_EXTERNAL_STORAGE));
-            if (fineLocation && writeStorage) {
-                startLocation();//权限已经获取到，开始定位
-            }
-        });
-    }
-
-    /**
      * 初始化
      */
     @Override
     protected void onCreate() {
         //沉浸式
         setFullScreenImmersion();
-        //初始化定位
-        initLocation();
-        //请求权限
-        requestPermission();
+//        //请求权限
+//        requestPermission();
         //初始化视图
         initView();
         //绑定ViewModel
@@ -170,18 +141,12 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
             case R.id.item_switching_cities:
                 if (cityDialog != null) cityDialog.show();
                 break;
-            case R.id.item_relocation:
-                startLocation();//点击重新定位item时，再次定位一下。
-                break;
         }
         return true;
     }
 
 
-    private void startLocation() {
-        cityFlag = 0;
-        goodLocation.startLocation();
-    }
+
 
     /**
      * 自定义Toolbar的图标
@@ -275,47 +240,20 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
         }
     }
 
-    /**
-     * 请求权限
-     */
-    private void requestPermission() {
-        //因为项目的最低版本API是23，所以肯定需要动态请求危险权限，只需要判断权限是否拥有即可
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            //开始权限请求
-            requestPermissionIntent.launch(permissions);
-            return;
-        }
-        startLocation();//拥有权限，开始定位
-    }
+//    /**
+//     * 请求权限
+//     */
+//    private void requestPermission() {
+//        //因为项目的最低版本API是23，所以肯定需要动态请求危险权限，只需要判断权限是否拥有即可
+//        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+//                || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//            //开始权限请求
+//            requestPermissionIntent.launch(permissions);
+//            return;
+//        }
+//        startLocation();//拥有权限，开始定位
+//    }
 
-    /**
-     * 初始化定位
-     */
-    private void initLocation() {
-        goodLocation = GoodLocation.getInstance(this);
-        goodLocation.setCallback(this);
-    }
-
-    /**
-     * 接收定位信息
-     *
-     * @param bdLocation 定位数据
-     */
-    @Override
-    public void onReceiveLocation(BDLocation bdLocation) {
-        String city = bdLocation.getCity();             //获取城市
-        String district = bdLocation.getDistrict();     //获取区县
-        if (viewModel != null && district != null) {
-            mCityName = district; //定位后重新赋值
-            //显示当前定位城市
-            binding.tvCity.setText(district);
-            //搜索城市
-            viewModel.searchCity(district);
-        } else {
-            Log.e("TAG", "district: " + district);
-        }
-    }
 
     /**
      * 选中城市

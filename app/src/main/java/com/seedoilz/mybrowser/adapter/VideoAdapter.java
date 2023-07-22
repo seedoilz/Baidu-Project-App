@@ -83,6 +83,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (player.isPlaying()){
+                    player.stop();
+                }
                 Intent fullscreenIntent = new Intent(holder.itemView.getContext(), FullScreenActivity.class);
                 fullscreenIntent.putExtra("videoUrl", video.getVideoUrl());
                 fullscreenIntent.putExtra("videoTitle", video.getTitle());

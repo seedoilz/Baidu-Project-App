@@ -46,6 +46,7 @@ public class FullScreenActivity extends AppCompatActivity {
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                player.release();
                 onBackPressed();
             }
         });
@@ -63,13 +64,6 @@ public class FullScreenActivity extends AppCompatActivity {
         // 准备并播放视频
         player.prepare(mediaSource);
         player.setPlayWhenReady(true);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // 释放 ExoPlayer 资源
-        player.release();
     }
 
     private MediaSource buildMediaSource(Uri uri) {
