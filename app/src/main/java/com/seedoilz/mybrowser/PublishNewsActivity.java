@@ -108,13 +108,13 @@ public class PublishNewsActivity extends AppCompatActivity {
                 article.imagePath = headlinePath;
 
 
-                Completable insertAll = MyBrowserApp.getDb().articleDao().insertAll(article);
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        MyBrowserApp.getDb().articleDao().insertAll(article);
-//                    }
-//                }).start();
+//                MyBrowserApp.getDb().articleDao().insertAll(article);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        MyBrowserApp.getDb().articleDao().insertAll(article);
+                    }
+                }).start();
 
                 Toast.makeText(PublishNewsActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
 

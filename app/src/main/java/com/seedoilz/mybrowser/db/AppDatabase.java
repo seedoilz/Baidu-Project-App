@@ -14,7 +14,7 @@ import com.seedoilz.mybrowser.model.Article;
 /**
  * Room数据库类
  */
-@Database(entities = {Province.class, Article.class}, version = 1, exportSchema = false)
+@Database(entities = {Province.class, Article.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "MyBrowserNew";
@@ -32,7 +32,7 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (mInstance == null) {
                     mInstance = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, DATABASE_NAME).build();
+                            AppDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration().build();
                 }
             }
         }

@@ -38,6 +38,7 @@ public class SplashActivity extends NetworkActivity<ActivitySplashBinding> {
         checkingStartup();
         //检查今天第一次运行
         checkFirstRunToday();
+        onObserveData();
         new Handler().postDelayed(() -> jumpActivityFinish(WeatherActivity.class), 300);
     }
 

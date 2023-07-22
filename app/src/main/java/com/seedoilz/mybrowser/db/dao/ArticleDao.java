@@ -20,7 +20,7 @@ public interface ArticleDao {
     List<Article> loadAllByIds(int[] articleIds);
 
     @Insert
-    Completable insertAll(Article... articles);
+    void insertAll(Article... articles);
 
     @Delete
     void delete(Article article);
