@@ -27,6 +27,8 @@ import com.seedoilz.mybrowser.repository.CustomDisposable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.reactivex.Completable;
 
@@ -77,8 +79,8 @@ public class PublishNewsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tempImage = thumbnailImage;
+                tempPath = "thumbnail";
                 checkPermissions();
-                thumbnailPath = tempPath;
             }
         });
 
@@ -86,8 +88,8 @@ public class PublishNewsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tempImage = headlineImage;
+                tempPath = "headline";
                 checkPermissions();
-                headlinePath = tempPath;
             }
         });
 
@@ -118,7 +120,7 @@ public class PublishNewsActivity extends AppCompatActivity {
 
                 Toast.makeText(PublishNewsActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
 
-//                onBackPressed();
+                onBackPressed();
             }
         });
     }
@@ -161,7 +163,12 @@ public class PublishNewsActivity extends AppCompatActivity {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
                     tempImage.setImageBitmap(bitmap);
-                    tempPath = saveImageToInternalStorage(bitmap);
+                    if (tempPath.equals("thumbnail")){
+                        thumbnailPath = saveImageToInternalStorage(bitmap);
+                    }
+                    else{
+                        headlinePath = saveImageToInternalStorage(bitmap);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -174,7 +181,11 @@ public class PublishNewsActivity extends AppCompatActivity {
             // Use the application's context to get the files directory.
             File directory = getApplicationContext().getFilesDir();
             // Create a new file in the specified directory.
-            File file = new File(directory, "my_image" + ".png");
+            long currentTimeMillis = System.currentTimeMillis();
+
+            // 将时间戳转换为字符串
+            String timeStampString = convertTimestampToString(currentTimeMillis);
+            File file = new File(directory, timeStampString + ".png");
 
             // Create an output stream from the file.
             FileOutputStream fos = null;
@@ -197,5 +208,13 @@ public class PublishNewsActivity extends AppCompatActivity {
         }
     }
 
+
+    private String convertTimestampToString(long timestamp) {
+        // 创建一个SimpleDateFormat对象，用于格式化时间戳
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss.SSS");
+
+        // 使用SimpleDateFormat对象格式化时间戳，并返回字符串
+        return dateFormat.format(new Date(timestamp));
+    }
 
 }

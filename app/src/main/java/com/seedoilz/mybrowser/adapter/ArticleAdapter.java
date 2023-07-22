@@ -62,7 +62,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
             title.setText(article.title);
             summary.setText(article.summary);
             Glide.with(itemView.getContext()).load(new File(article.thumbnailPath)).into(thumbnail);
-            Glide.with(itemView.getContext()).load(new File(article.imagePath)).into(image);
         }
     }
 }

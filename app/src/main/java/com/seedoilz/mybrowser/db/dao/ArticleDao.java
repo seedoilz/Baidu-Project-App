@@ -16,12 +16,7 @@ public interface ArticleDao {
     @Query("SELECT * FROM article")
     List<Article> getAll();
 
-    @Query("SELECT * FROM article WHERE id IN (:articleIds)")
-    List<Article> loadAllByIds(int[] articleIds);
-
     @Insert
     void insertAll(Article... articles);
 
-    @Delete
-    void delete(Article article);
 }

@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.seedoilz.mybrowser.adapter.ArticleAdapter;
 import com.seedoilz.mybrowser.adapter.BarAdapter;
 import com.seedoilz.mybrowser.adapter.VideoAdapter;
 import com.seedoilz.mybrowser.bottombar.home;
 import com.seedoilz.mybrowser.bottombar.user;
 import com.seedoilz.mybrowser.bottombar.video;
+import com.seedoilz.mybrowser.model.Article;
 import com.seedoilz.mybrowser.model.Video;
 
 import org.jetbrains.annotations.Nullable;
@@ -28,13 +30,27 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout mTabLayout;
     private List<String> mtitle;  //存放底部标题
+
+    private List<Article> articles;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.seedoilz.mybrowser.R.layout.activity_main);
-
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                articles = MyBrowserApp.getDb().articleDao().getAll();
+            }
+        }).start();
         initView();
+
     }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        articleLoad();
+//    }
 
     private void initView() {
         mTabLayout = findViewById(com.seedoilz.mybrowser.R.id.tablayout);
@@ -66,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
+                        articleLoad();
 //                        Toast.makeText(MainActivity.this, "这是主页", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
@@ -93,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         // video标题数据获取
         ArrayList<Video> videos = new ArrayList<>();
         videos.add(new Video("Video 1", "https://i0.hdslb.com/bfs/archive/ffe9ca68c239b4f2523e43211ae1b516259ebd20.jpg@672w_378h_1c_!web-home-common-cover", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
-        videos.add(new Video("Video 2", "http://example.com/thumbnail2.jpg", "http://example.com/video2.mp4"));
+        videos.add(new Video("Video 2", "http://example.com/thumbnail2.jpg", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
         videos.add(new Video("Video 3", "http://example.com/thumbnail3.jpg", "http://example.com/video3.mp4"));
         videos.add(new Video("Video 4", "http://example.com/thumbnail4.jpg", "http://example.com/video4.mp4"));
 
@@ -106,7 +123,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void articleLoad(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                articles = MyBrowserApp.getDb().articleDao().getAll();
+            }
+        }).start();
 
+        RecyclerView recyclerView = findViewById(R.id.article_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new ArticleAdapter(articles));
     }
 
 }

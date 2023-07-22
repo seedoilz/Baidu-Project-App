@@ -10,14 +10,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.seedoilz.mybrowser.MyBrowserApp;
 import com.seedoilz.mybrowser.PublishNewsActivity;
 import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.SplashActivity;
+import com.seedoilz.mybrowser.adapter.ArticleAdapter;
+import com.seedoilz.mybrowser.model.Article;
+
+import java.util.List;
 
 public class home extends Fragment {
 
     private TextView weatherTextView;
+
+    private List<Article> articles;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +67,20 @@ public class home extends Fragment {
             }
         });
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                articles = MyBrowserApp.getDb().articleDao().getAll();
+            }
+        }).start();
+
+        RecyclerView recyclerView = rootView.findViewById(R.id.article_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new ArticleAdapter(articles));
+
+
         return rootView;
     }
+
 }
