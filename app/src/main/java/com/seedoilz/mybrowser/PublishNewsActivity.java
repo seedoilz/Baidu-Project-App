@@ -11,19 +11,37 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.seedoilz.mybrowser.model.Article;
+import com.seedoilz.mybrowser.repository.CustomDisposable;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+
+import io.reactivex.Completable;
 
 public class PublishNewsActivity extends AppCompatActivity {
 
+    private EditText newsTitle;
+    private EditText summaryText;
+    private EditText bodyText;
     private ImageView thumbnailImage = null;
     private ImageView headlineImage = null;
+
+    private String tempPath;
+
+    private String thumbnailPath;
+    private String headlinePath;
 
     private ImageView tempImage = null;
     private Uri selectedImageUri;
@@ -40,6 +58,10 @@ public class PublishNewsActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
+        newsTitle = findViewById(R.id.news_title);
+        summaryText = findViewById(R.id.summary_text);
+        bodyText = findViewById(R.id.body_text);
         thumbnailImage = findViewById(R.id.thumbnail_image);
         headlineImage = findViewById(R.id.headline_image);
 
@@ -56,6 +78,7 @@ public class PublishNewsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tempImage = thumbnailImage;
                 checkPermissions();
+                thumbnailPath = tempPath;
             }
         });
 
@@ -64,6 +87,38 @@ public class PublishNewsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tempImage = headlineImage;
                 checkPermissions();
+                headlinePath = tempPath;
+            }
+        });
+
+        View submitButton = findViewById(R.id.publish_button);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Article article = new Article();
+                String title = newsTitle.getText().toString();
+                String summary = summaryText.getText().toString();
+                String body = bodyText.getText().toString();
+
+                article.title = title;
+                article.summary = summary;
+                article.content = body;
+                article.thumbnailPath = thumbnailPath;
+                article.imagePath = headlinePath;
+
+
+                Completable insertAll = MyBrowserApp.getDb().articleDao().insertAll(article);
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        MyBrowserApp.getDb().articleDao().insertAll(article);
+//                    }
+//                }).start();
+
+                Toast.makeText(PublishNewsActivity.this, "提交成功", Toast.LENGTH_SHORT).show();
+
+//                onBackPressed();
             }
         });
     }
@@ -106,11 +161,41 @@ public class PublishNewsActivity extends AppCompatActivity {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
                     tempImage.setImageBitmap(bitmap);
+                    tempPath = saveImageToInternalStorage(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
+
+    private String saveImageToInternalStorage(Bitmap bitmap) {
+        try {
+            // Use the application's context to get the files directory.
+            File directory = getApplicationContext().getFilesDir();
+            // Create a new file in the specified directory.
+            File file = new File(directory, "my_image" + ".png");
+
+            // Create an output stream from the file.
+            FileOutputStream fos = null;
+            try {
+                fos = new FileOutputStream(file);
+                // Use the compress method on the BitMap object to write image to the output stream.
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                // Flush and close the output stream.
+                fos.flush();
+                fos.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+            // Return the image file's absolute path.
+            return file.getAbsolutePath();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 }

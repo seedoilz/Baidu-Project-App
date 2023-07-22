@@ -11,10 +11,10 @@
 
 
         <LinearLayout
-            android:orientation="vertical"
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
 
 
             <LinearLayout
@@ -26,9 +26,9 @@
                     android:id="@+id/iv_weather"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:layout_weight="1"
                     android:text="Weather"
                     android:textColor="@color/discover"
                     android:textSize="20dp" />
@@ -45,14 +45,13 @@
             </LinearLayout>
 
 
-
             <ImageView
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="100dp"
-                android:layout_marginLeft="100dp"
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="100dp"
                 android:gravity="center"
                 android:src="@drawable/home_logo" />
 
@@ -60,19 +59,20 @@
                 android:id="@+id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginRight="20dp"
-                android:orientation="horizontal"
-                android:background="@drawable/home_search_bar_border">
+                android:background="@drawable/home_search_bar_border"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/search_home"/>
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/search_home" />
 
                 <EditText
                     android:id="@+id/search_content"
@@ -94,13 +94,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/quick_recyclerview"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,50 +110,14 @@
                 android:textColor="@color/discover"
                 android:textSize="20dp" />
 
-            <LinearLayout
-                android:id="@+id/discover"
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/video_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal"
-                android:background="@drawable/home_discover_bar_border">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:textSize="25dp"
-                        android:layout_gravity="start"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="@color/discover_title"
-                        android:text="@string/discover_title"/>
-                    <TextView
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:textColor="@color/discover_content"
-                        android:text="@string/discover_content"/>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"/>
-
-            </LinearLayout>
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:listitem="@layout/item_article" />
 
 
         </LinearLayout>
