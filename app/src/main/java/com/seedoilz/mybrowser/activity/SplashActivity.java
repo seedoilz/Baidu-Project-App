@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser;
+package com.seedoilz.mybrowser.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import com.seedoilz.mybrowser.Constant;
 import com.seedoilz.mybrowser.databinding.ActivitySplashBinding;
 import com.seedoilz.mybrowser.db.bean.Province;
 import com.seedoilz.mybrowser.utils.EasyDate;

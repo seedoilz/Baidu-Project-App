@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser;
+package com.seedoilz.mybrowser.activity;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.seedoilz.mybrowser.MyBrowserApp;
+import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.adapter.ArticleAdapter;
 import com.seedoilz.mybrowser.adapter.BarAdapter;
 import com.seedoilz.mybrowser.adapter.VideoAdapter;

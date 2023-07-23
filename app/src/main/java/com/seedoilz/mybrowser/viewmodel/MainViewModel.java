@@ -11,7 +11,7 @@ import com.seedoilz.mybrowser.repository.CityRepository;
 import com.seedoilz.mybrowser.repository.SearchCityRepository;
 import com.seedoilz.mybrowser.repository.WeatherRepository;
 import com.seedoilz.library.base.BaseViewModel;
-import com.seedoilz.mybrowser.WeatherActivity;
+import com.seedoilz.mybrowser.activity.WeatherActivity;
 
 import java.util.List;
 

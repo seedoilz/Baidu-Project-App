@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser;
+package com.seedoilz.mybrowser.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.databinding.WeatherBinding;
 import com.seedoilz.mybrowser.db.bean.HourlyResponse;
 import com.seedoilz.mybrowser.adapter.DailyAdapter;
@@ -236,20 +237,6 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
             viewModel.failed.observe(this, this::showLongMsg);
         }
     }
-
-//    /**
-//     * 请求权限
-//     */
-//    private void requestPermission() {
-//        //因为项目的最低版本API是23，所以肯定需要动态请求危险权限，只需要判断权限是否拥有即可
-//        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-//                || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-//            //开始权限请求
-//            requestPermissionIntent.launch(permissions);
-//            return;
-//        }
-//        startLocation();//拥有权限，开始定位
-//    }
 
 
     /**

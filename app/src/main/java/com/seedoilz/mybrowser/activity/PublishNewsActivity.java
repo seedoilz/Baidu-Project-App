@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser;
+package com.seedoilz.mybrowser.activity;
 
 import static android.content.ContentValues.TAG;
 
@@ -21,16 +21,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.seedoilz.mybrowser.MyBrowserApp;
+import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.model.Article;
-import com.seedoilz.mybrowser.repository.CustomDisposable;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import io.reactivex.Completable;
 
 public class PublishNewsActivity extends AppCompatActivity {
 

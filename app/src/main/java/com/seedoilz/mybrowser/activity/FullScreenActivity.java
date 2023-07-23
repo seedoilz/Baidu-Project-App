@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser;// VideoPlayerActivity.java
+package com.seedoilz.mybrowser.activity;// VideoPlayerActivity.java
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +17,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.seedoilz.mybrowser.R;
 
 public class FullScreenActivity extends AppCompatActivity {
 

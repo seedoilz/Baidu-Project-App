@@ -23,20 +23,26 @@
         android:theme="@style/Theme.MyBrowserNew"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".PublishNewsActivity"
+            android:name=".activity.PublishNewsActivity"
             android:exported="false"/>
         <activity
-            android:name=".WeatherActivity"
+            android:name=".activity.WeatherActivity"
             android:exported="false"/>
         <activity
-            android:name=".FullScreenActivity"
+            android:name=".activity.FullScreenActivity"
             android:exported="false"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.LoginActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

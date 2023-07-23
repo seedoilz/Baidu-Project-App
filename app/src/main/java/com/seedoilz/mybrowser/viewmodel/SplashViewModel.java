@@ -3,7 +3,7 @@ package com.seedoilz.mybrowser.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.seedoilz.mybrowser.SplashActivity;
+import com.seedoilz.mybrowser.activity.SplashActivity;
 import com.seedoilz.mybrowser.db.bean.Province;
 import com.seedoilz.mybrowser.repository.CityRepository;
 import com.seedoilz.library.base.BaseViewModel;

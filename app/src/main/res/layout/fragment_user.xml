@@ -8,7 +8,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:orientation="vertical">
 
         <!-- User Information Layout -->
         <LinearLayout
@@ -37,20 +38,13 @@
                     android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="10dp"
                     android:text="@string/default_user"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
-                <!-- User Email -->
-                <TextView
-                    android:id="@+id/userEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="尚未验证邮箱"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+
 
                 <!-- Other User Info -->
                 <!-- Add Other TextViews For Additional User Information -->
@@ -61,21 +55,42 @@
         <!-- Other Layout Elements -->
         <!-- Add Other Layout Elements As Required -->
 
+        <!-- Registration and Login Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登出"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登陆"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+
+        <!-- Logout Button -->
+
+
     </LinearLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/usr_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_above="@+id/usr_tablayout" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/usr_tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true">
-    </com.google.android.material.tabs.TabLayout>
 
 
 </RelativeLayout>
-

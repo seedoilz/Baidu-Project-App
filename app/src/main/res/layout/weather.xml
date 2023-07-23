@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:fitsSystemWindows="true"
-    tools:context=".WeatherActivity">
+    tools:context=".activity.WeatherActivity">
     <!--顶部标题-->
 
     <!--下拉刷新视图-->

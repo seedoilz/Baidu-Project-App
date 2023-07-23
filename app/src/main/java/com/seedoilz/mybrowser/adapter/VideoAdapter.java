@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.seedoilz.mybrowser.FullScreenActivity;
+import com.seedoilz.mybrowser.activity.FullScreenActivity;
 import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.model.Video;
 

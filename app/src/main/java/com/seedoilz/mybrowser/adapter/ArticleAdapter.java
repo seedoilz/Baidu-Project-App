@@ -61,12 +61,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         public void bind(Article article) {
             title.setText(article.title);
             summary.setText(article.summary);
-            if (article.thumbnailPath.startsWith("http")){
-                Glide.with(itemView.getContext()).load(article.thumbnailPath).into(thumbnail);
-            }
-            else{
-                Glide.with(itemView.getContext()).load(new File(article.thumbnailPath)).into(thumbnail);
-            }
+//            if (article.thumbnailPath.startsWith("http")){
+//                Glide.with(itemView.getContext()).load(article.thumbnailPath).into(thumbnail);
+//            }
+//            else{
+//                Glide.with(itemView.getContext()).load(new File(article.thumbnailPath)).into(thumbnail);
+//            }
         }
     }
 }

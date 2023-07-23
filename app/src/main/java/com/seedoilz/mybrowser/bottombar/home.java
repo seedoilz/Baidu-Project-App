@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.seedoilz.mybrowser.MyBrowserApp;
-import com.seedoilz.mybrowser.PublishNewsActivity;
+import com.seedoilz.mybrowser.activity.PublishNewsActivity;
 import com.seedoilz.mybrowser.R;
-import com.seedoilz.mybrowser.SplashActivity;
+import com.seedoilz.mybrowser.activity.SplashActivity;
 import com.seedoilz.mybrowser.adapter.ArticleAdapter;
 import com.seedoilz.mybrowser.model.Article;
 

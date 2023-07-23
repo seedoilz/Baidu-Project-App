@@ -9,20 +9,21 @@ import androidx.room.RoomDatabase;
 import com.seedoilz.mybrowser.db.bean.Province;
 import com.seedoilz.mybrowser.db.dao.ArticleDao;
 import com.seedoilz.mybrowser.db.dao.ProvinceDao;
+import com.seedoilz.mybrowser.db.dao.UserDao;
 import com.seedoilz.mybrowser.model.Article;
+import com.seedoilz.mybrowser.model.User;
 
 /**
  * Room数据库类
  */
-@Database(entities = {Province.class, Article.class}, version = 2, exportSchema = false)
+@Database(entities = {Province.class, Article.class, User.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "MyBrowserNew";
     private static volatile AppDatabase mInstance;
-
     public abstract ProvinceDao provinceDao();
-
     public abstract ArticleDao articleDao();
+    public abstract UserDao userDao();
 
     /**
      * 单例模式
