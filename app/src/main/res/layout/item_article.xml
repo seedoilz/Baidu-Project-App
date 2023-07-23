@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/discover"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         android:orientation="horizontal"
         android:background="@drawable/home_discover_bar_border"
         android:gravity="center_vertical"
@@ -19,25 +19,27 @@
         android:layout_marginRight="20dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:padding="10dp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:fontFamily="serif"
                 android:textSize="20dp"
                 android:layout_gravity="start"
+                android:ellipsize="end"
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/discover_title"
                 android:text="@string/discover_title"/>
             <TextView
                 android:id="@+id/summary"
                 android:layout_width="160dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:fontFamily="serif"
+                android:ellipsize="end"
                 android:textSize="12dp"
                 android:layout_gravity="start"
                 android:textColor="@color/discover_content"
@@ -46,7 +48,7 @@
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

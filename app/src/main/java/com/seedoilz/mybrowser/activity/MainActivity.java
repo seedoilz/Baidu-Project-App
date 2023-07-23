@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
         initView();
-
     }
 
 //    @Override
@@ -103,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void videoLoad(){
@@ -132,9 +129,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
-        RecyclerView recyclerView = findViewById(R.id.article_recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ArticleAdapter(articles));
+        if (articles != null) {
+            RecyclerView recyclerView = findViewById(R.id.article_recycler_view);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(new ArticleAdapter(articles));
+        }
     }
 
 }

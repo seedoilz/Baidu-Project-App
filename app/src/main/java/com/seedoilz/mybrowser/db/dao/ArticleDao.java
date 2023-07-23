@@ -19,4 +19,6 @@ public interface ArticleDao {
     @Insert
     void insertAll(Article... articles);
 
+    @Query("SELECT * FROM article WHERE id = :id")
+    Article getOneById(int id);
 }

@@ -1,5 +1,6 @@
 package com.seedoilz.mybrowser.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import com.seedoilz.mybrowser.R;
+import com.seedoilz.mybrowser.activity.ArticleDisplayActivity;
+import com.seedoilz.mybrowser.activity.FullScreenActivity;
 import com.seedoilz.mybrowser.model.Article;
 
 import java.io.File;
@@ -39,6 +42,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         Article article = articles.get(position);
         // 绑定数据到 ViewHolder 上
         holder.bind(article);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fullscreenIntent = new Intent(holder.itemView.getContext(), ArticleDisplayActivity.class);
+                fullscreenIntent.putExtra("article_id", String.valueOf(article.id));
+                holder.itemView.getContext().startActivity(fullscreenIntent);
+            }
+        });
     }
 
     @Override
@@ -61,12 +73,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         public void bind(Article article) {
             title.setText(article.title);
             summary.setText(article.summary);
-//            if (article.thumbnailPath.startsWith("http")){
-//                Glide.with(itemView.getContext()).load(article.thumbnailPath).into(thumbnail);
-//            }
-//            else{
-//                Glide.with(itemView.getContext()).load(new File(article.thumbnailPath)).into(thumbnail);
-//            }
+            if (article.thumbnailPath.startsWith("http")){
+                Glide.with(itemView.getContext()).load(article.thumbnailPath).into(thumbnail);
+            }
+            else{
+                Glide.with(itemView.getContext()).load(new File(article.thumbnailPath)).into(thumbnail);
+            }
         }
     }
 }

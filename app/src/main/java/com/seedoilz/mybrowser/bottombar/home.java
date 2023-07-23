@@ -67,7 +67,21 @@ public class home extends Fragment {
             }
         });
 
+        View refreshButton = rootView.findViewById(R.id.refresh_button);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                refresh(rootView);
+            }
+        });
 
+        refresh(rootView);
+
+
+        return rootView;
+    }
+
+    private void refresh(View rootView){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -78,9 +92,5 @@ public class home extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.article_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ArticleAdapter(articles));
-
-
-        return rootView;
     }
-
 }
