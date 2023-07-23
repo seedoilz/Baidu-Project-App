@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.seedoilz.mybrowser.databinding.DialogCityBinding;
 import com.seedoilz.mybrowser.db.bean.Province;
-import com.seedoilz.mybrowser.ui.adapter.AreaAdapter;
-import com.seedoilz.mybrowser.ui.adapter.CityAdapter;
-import com.seedoilz.mybrowser.ui.adapter.AdministrativeClickCallback;
-import com.seedoilz.mybrowser.ui.adapter.ProvinceAdapter;
+import com.seedoilz.mybrowser.adapter.AreaAdapter;
+import com.seedoilz.mybrowser.adapter.CityAdapter;
+import com.seedoilz.mybrowser.adapter.AdministrativeClickCallback;
+import com.seedoilz.mybrowser.adapter.ProvinceAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

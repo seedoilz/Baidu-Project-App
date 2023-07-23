@@ -1,7 +1,5 @@
 package com.seedoilz.mybrowser;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -9,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.view.Menu;
@@ -18,8 +15,8 @@ import android.view.View;
 
 import com.seedoilz.mybrowser.databinding.WeatherBinding;
 import com.seedoilz.mybrowser.db.bean.HourlyResponse;
-import com.seedoilz.mybrowser.ui.adapter.DailyAdapter;
-import com.seedoilz.mybrowser.ui.adapter.HourlyAdapter;
+import com.seedoilz.mybrowser.adapter.DailyAdapter;
+import com.seedoilz.mybrowser.adapter.HourlyAdapter;
 import com.seedoilz.mybrowser.db.bean.DailyResponse;
 import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.mybrowser.db.bean.SearchCityResponse;

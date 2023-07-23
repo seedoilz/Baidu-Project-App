@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser.ui.adapter;
+package com.seedoilz.mybrowser.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -13,16 +13,16 @@ import com.seedoilz.mybrowser.utils.AdministrativeType;
 import java.util.List;
 
 /**
- * 市数据适配器
+ * 区/县数据适配器
  */
-public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
+public class AreaAdapter extends RecyclerView.Adapter<AreaAdapter.ViewHolder> {
 
-    private final List<Province.City> cities;
+    private final List<Province.City.Area> areas;
 
     private AdministrativeClickCallback administrativeClickCallback;//视图点击
 
-    public CityAdapter(List<Province.City> cities) {
-        this.cities = cities;
+    public AreaAdapter(List<Province.City.Area> areas) {
+        this.areas = areas;
     }
 
     public void setAdministrativeClickCallback(AdministrativeClickCallback administrativeClickCallback) {
@@ -37,7 +37,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
         //添加视图点击事件
         binding.getRoot().setOnClickListener(v -> {
             if (administrativeClickCallback != null) {
-                administrativeClickCallback.onAdministrativeItemClick(v, viewHolder.getAdapterPosition(), AdministrativeType.CITY);
+                administrativeClickCallback.onAdministrativeItemClick(v, viewHolder.getAdapterPosition(), AdministrativeType.AREA);
             }
         });
         return viewHolder;
@@ -45,12 +45,12 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.binding.tvText.setText(cities.get(position).getCityName());
+        holder.binding.tvText.setText(areas.get(position).getAreaName());
     }
 
     @Override
     public int getItemCount() {
-        return cities.size();
+        return areas.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

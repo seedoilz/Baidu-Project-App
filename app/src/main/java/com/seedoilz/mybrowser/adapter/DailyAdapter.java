@@ -1,4 +1,4 @@
-package com.seedoilz.mybrowser.ui.adapter;
+package com.seedoilz.mybrowser.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
