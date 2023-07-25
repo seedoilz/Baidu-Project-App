@@ -4,9 +4,13 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.seedoilz.mybrowser.MyBrowserApp;
 import com.seedoilz.mybrowser.activity.PublishNewsActivity;
 import com.seedoilz.mybrowser.R;
+import com.seedoilz.mybrowser.activity.SearchActivity;
 import com.seedoilz.mybrowser.activity.SplashActivity;
 import com.seedoilz.mybrowser.adapter.ArticleAdapter;
 import com.seedoilz.mybrowser.model.Article;
@@ -75,8 +80,30 @@ public class home extends Fragment {
             }
         });
 
-        refresh(rootView);
+        EditText mSearch = rootView.findViewById(R.id.search_content);
+        mSearch.setOnKeyListener(new View.OnKeyListener(){
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+                if (keyCode == android.view.KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN){
+                    Intent intent = new Intent(getActivity(),  SearchActivity.class);
+                    intent.putExtra("query", mSearch.getText().toString());
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
+            }
+        });
 
+        ImageView searchView = rootView.findViewById(R.id.search_icon);
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),  SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        refresh(rootView);
 
         return rootView;
     }
