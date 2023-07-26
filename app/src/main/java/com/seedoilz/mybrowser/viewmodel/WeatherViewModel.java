@@ -19,7 +19,7 @@ import java.util.List;
  * 主页面ViewModel
  * {@link WeatherActivity}
  */
-public class MainViewModel extends BaseViewModel {
+public class WeatherViewModel extends BaseViewModel {
 
     public MutableLiveData<SearchCityResponse> searchCityResponseMutableLiveData = new MutableLiveData<>();
 

@@ -18,6 +18,7 @@ import com.seedoilz.mybrowser.activity.FullScreenActivity;
 import com.seedoilz.mybrowser.model.Article;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
@@ -83,6 +84,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
                 Glide.with(itemView.getContext()).load(new File(article.thumbnailPath)).into(thumbnail);
             }
         }
+    }
+
+    public void setData(List<Article> newData) {
+        this.articles = newData;
+        notifyDataSetChanged();
     }
 }
 

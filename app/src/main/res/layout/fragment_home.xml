@@ -34,7 +34,7 @@
                     android:textSize="20dp" />
 
                 <ImageView
-                    android:id="@+id/refresh_button"
+                    android:id="@+id/imageView"
                     android:layout_width="50dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="30dp"
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/article_recycler_view"
+                    android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"

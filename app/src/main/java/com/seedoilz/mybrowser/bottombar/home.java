@@ -8,12 +8,12 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,8 +23,11 @@ import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.activity.SearchActivity;
 import com.seedoilz.mybrowser.activity.SplashActivity;
 import com.seedoilz.mybrowser.adapter.ArticleAdapter;
+import com.seedoilz.mybrowser.databinding.FragmentHomeBinding;
 import com.seedoilz.mybrowser.model.Article;
+import com.seedoilz.mybrowser.viewmodel.HomeViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class home extends Fragment {
@@ -32,6 +35,12 @@ public class home extends Fragment {
     private TextView weatherTextView;
 
     private List<Article> articles;
+
+    private FragmentHomeBinding binding;
+    private HomeViewModel viewModel;
+
+    private ArticleAdapter articleAdapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +81,7 @@ public class home extends Fragment {
             }
         });
 
-        View refreshButton = rootView.findViewById(R.id.refresh_button);
+        View refreshButton = rootView.findViewById(R.id.imageView);
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,11 +90,11 @@ public class home extends Fragment {
         });
 
         EditText mSearch = rootView.findViewById(R.id.search_content);
-        mSearch.setOnKeyListener(new View.OnKeyListener(){
+        mSearch.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-                if (keyCode == android.view.KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN){
-                    Intent intent = new Intent(getActivity(),  SearchActivity.class);
+                if (keyCode == android.view.KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("query", mSearch.getText().toString());
                     startActivity(intent);
                     return true;
@@ -98,9 +107,29 @@ public class home extends Fragment {
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),  SearchActivity.class);
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
             }
+        });
+
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+
+        // Initialize your ViewModel
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
+        // Set click listener to the ImageView
+        binding.imageView.setOnClickListener(v -> viewModel.refresh());
+
+
+        articleAdapter = new ArticleAdapter(new ArrayList<>());
+        binding.recyclerView.setAdapter(articleAdapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        // Observe the LiveData in your ViewModel
+        viewModel.getData().observe(getViewLifecycleOwner(), newData -> {
+            // Set the new data to your TextView
+            articleAdapter.setData(newData);
         });
 
         refresh(rootView);
@@ -108,7 +137,7 @@ public class home extends Fragment {
         return rootView;
     }
 
-    private void refresh(View rootView){
+    private void refresh(View rootView) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -116,7 +145,7 @@ public class home extends Fragment {
             }
         }).start();
 
-        RecyclerView recyclerView = rootView.findViewById(R.id.article_recycler_view);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ArticleAdapter(articles));
     }

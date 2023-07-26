@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout mTabLayout;
     private List<String> mtitle;  //存放底部标题
-
     private List<Article> articles;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         }).start();
 
         if (articles != null) {
-            RecyclerView recyclerView = findViewById(R.id.article_recycler_view);
+            RecyclerView recyclerView = findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(new ArticleAdapter(articles));
         }

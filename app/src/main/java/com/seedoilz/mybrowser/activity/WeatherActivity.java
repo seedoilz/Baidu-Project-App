@@ -23,7 +23,7 @@ import com.seedoilz.mybrowser.db.bean.NowResponse;
 import com.seedoilz.mybrowser.db.bean.SearchCityResponse;
 import com.seedoilz.mybrowser.utils.CityDialog;
 import com.seedoilz.mybrowser.utils.EasyDate;
-import com.seedoilz.mybrowser.viewmodel.MainViewModel;
+import com.seedoilz.mybrowser.viewmodel.WeatherViewModel;
 import com.seedoilz.library.base.NetworkActivity;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ import java.util.List;
 public class WeatherActivity extends NetworkActivity<WeatherBinding> implements CityDialog.SelectedCityCallback {
 
 
-    private MainViewModel viewModel;
+    private WeatherViewModel viewModel;
 
     //天气预报数据和适配器
     private final List<DailyResponse.DailyBean> dailyBeanList = new ArrayList<>();
@@ -64,7 +64,7 @@ public class WeatherActivity extends NetworkActivity<WeatherBinding> implements 
         //初始化视图
         initView();
         //绑定ViewModel
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
         //获取城市数据
         viewModel.getAllCity();
     }
