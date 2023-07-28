@@ -26,7 +26,7 @@ public class SearchCityRepository {
         return SearchCityRepository.SearchCityRepositoryHolder.mInstance;
     }
 
-    
+
     public void searchCity(MutableLiveData<SearchCityResponse> responseLiveData,
                            MutableLiveData<String> failed, String cityName) {
         String type = "搜索城市-->";
@@ -38,7 +38,6 @@ public class SearchCityRepository {
                             failed.postValue("搜索城市数据为null，请检查城市名称是否正确。");
                             return;
                         }
-                        //请求接口成功返回数据，失败返回状态码
                         if (Constant.SUCCESS.equals(searchCityResponse.getCode())) {
                             responseLiveData.postValue(searchCityResponse);
                         } else {

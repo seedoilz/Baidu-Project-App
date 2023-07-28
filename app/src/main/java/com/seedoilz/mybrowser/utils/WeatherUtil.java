@@ -1,6 +1,5 @@
 package com.seedoilz.mybrowser.utils;
 
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.seedoilz.mybrowser.R;
@@ -8,7 +7,7 @@ import com.seedoilz.mybrowser.R;
 
 public class WeatherUtil {
 
-    
+
     public static void changeIcon(ImageView weatherStateIcon, int code) {
         switch (code) {
             //晴

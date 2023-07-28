@@ -41,118 +41,21 @@ public final class EasyDate {
     public static final String SATURDAY = "星期六";
     public static final String[] weekDays = {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY};
 
-    
-    public static String getDateTime() {
-        return new SimpleDateFormat(STANDARD_TIME, Locale.CHINESE).format(new Date());
-    }
 
-    
-    public static String getFullDateTime() {
-        return new SimpleDateFormat(FULL_TIME, Locale.CHINESE).format(new Date());
-    }
-
-    
     public static String getTheYearMonthAndDay() {
         return new SimpleDateFormat(YEAR_MONTH_DAY, Locale.CHINESE).format(new Date());
     }
 
-    
-    public static String getTheYearMonthAndDayCn() {
-        return new SimpleDateFormat(YEAR_MONTH_DAY_CN, Locale.CHINESE).format(new Date());
-    }
 
-    
-    public static String getTheYearMonthAndDayDelimiter(CharSequence delimiter) {
-        return new SimpleDateFormat(YEAR + delimiter + MONTH + delimiter + DAY, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getHoursMinutesAndSeconds() {
-        return new SimpleDateFormat(HOUR_MINUTE_SECOND, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getHoursMinutesAndSecondsCn() {
-        return new SimpleDateFormat(HOUR_MINUTE_SECOND_CN, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getHoursMinutesAndSecondsDelimiter(CharSequence delimiter) {
-        return new SimpleDateFormat(HOUR + delimiter + MINUTE + delimiter + SECOND, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getYear() {
-        return new SimpleDateFormat(YEAR, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getMonth() {
-        return new SimpleDateFormat(MONTH, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getDay() {
-        return new SimpleDateFormat(DAY, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getHour() {
-        return new SimpleDateFormat(HOUR, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getMinute() {
-        return new SimpleDateFormat(MINUTE, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getSecond() {
-        return new SimpleDateFormat(SECOND, Locale.CHINESE).format(new Date());
-    }
-
-    
-    public static String getMilliSecond() {
-        return new SimpleDateFormat(MILLISECOND, Locale.CHINESE).format(new Date());
-    }
-
-    
     public static long getTimestamp() {
         return System.currentTimeMillis();
     }
 
-    
-    public static long dateToStamp(String time) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(STANDARD_TIME, Locale.CHINESE);
-        Date date = null;
-        try {
-            date = simpleDateFormat.parse(time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return Objects.requireNonNull(date).getTime();
-    }
 
-    
     public static String stampToDate(long timeMillis) {
         return new SimpleDateFormat(STANDARD_TIME, Locale.CHINESE).format(new Date(timeMillis));
     }
 
-    
-    public static String greenwichupToSimpleTime(String dateTime) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-        Date date = null;
-        try {
-            date = df.parse(dateTime);
-            SimpleDateFormat df1 = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.UK);
-            Date date1 = df1.parse(date.toString());
-            DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            return df2.format(date1);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return "转换失败";
-    }
 
     public static String updateTime(String dateTime) {
         String result = null;
@@ -166,18 +69,6 @@ public final class EasyDate {
         return result;
     }
 
-    
-    public static String getTodayOfWeek() {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        int index = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (index < 0) {
-            index = 0;
-        }
-        return weekDays[index];
-    }
-
-    
     public static String getWeek(String dateTime) {
         Calendar cal = Calendar.getInstance();
         if ("".equals(dateTime)) {
@@ -198,7 +89,7 @@ public final class EasyDate {
         return weekDays[cal.get(Calendar.DAY_OF_WEEK) - 1];
     }
 
-    
+
     public static String getYesterday(Date date) {
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(date);
@@ -207,7 +98,7 @@ public final class EasyDate {
         return new SimpleDateFormat(YEAR_MONTH_DAY, Locale.getDefault()).format(date);
     }
 
-    
+
     public static String getTomorrow(Date date) {
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(date);
@@ -216,7 +107,7 @@ public final class EasyDate {
         return new SimpleDateFormat(YEAR_MONTH_DAY, Locale.getDefault()).format(date);
     }
 
-    
+
     public static String getDayInfo(String dateTime) {
         String dayInfo;
         String yesterday = getYesterday(new Date());
@@ -235,29 +126,6 @@ public final class EasyDate {
         return dayInfo;
     }
 
-    
-    public static int getCurrentMonthDays() {
-        Calendar calendar = Calendar.getInstance();
-        //把日期设置为当月第一天
-        calendar.set(Calendar.DATE, 1);
-        //日期回滚一天，也就是最后一天
-        calendar.roll(Calendar.DATE, -1);
-        return calendar.get(Calendar.DATE);
-    }
-
-    
-    public static int getMonthDays(int year, int month) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month - 1);
-        //把日期设置为当月第一天
-        calendar.set(Calendar.DATE, 1);
-        //日期回滚一天，也就是最后一天
-        calendar.roll(Calendar.DATE, -1);
-        return calendar.get(Calendar.DATE);
-    }
-
-    
     public static String dateSplit(String date) {//2020-08-07
         String result = null;
 
@@ -266,7 +134,7 @@ public final class EasyDate {
         return result;
     }
 
-    
+
     public static String showTimeInfo(String timeData) {
         String timeInfo;
         int time;
@@ -292,19 +160,11 @@ public final class EasyDate {
         return timeInfo;
     }
 
-    
-    public static long getTodayTwelveTimestamp() {
-        long zero = getTimestamp() / (1000 * 3600 * 24) * (1000 * 3600 * 24) - TimeZone.getDefault().getRawOffset();//今天零点零分零秒的毫秒数
-        long twelve = zero + 24 * 60 * 60 * 1000 - 1;//今天23点59分59秒的毫秒数
-        return new Timestamp(twelve).getTime();
-    }
 
-    
     public static boolean isToday(long time) {
         return isToday(stampToDate(time));
     }
 
-    
     public static boolean isToday(String day) {
         Calendar pre = Calendar.getInstance();
         Date predate = new Date(System.currentTimeMillis());

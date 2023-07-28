@@ -28,7 +28,7 @@ public class MVUtils {
         return mInstance;
     }
 
-    
+
     public static void put(String key, Object object) {
         if (object instanceof String) {
             mmkv.encode(key, (String) object);
@@ -49,86 +49,14 @@ public class MVUtils {
         }
     }
 
-    public static void putSet(String key, Set<String> sets) {
-        mmkv.encode(key, sets);
-    }
-
-    public static void putParcelable(String key, Parcelable obj) {
-        mmkv.encode(key, obj);
-    }
-
-    public static Integer getInt(String key) {
-        return mmkv.decodeInt(key, 0);
-    }
-
-    public static Integer getInt(String key, int defaultValue) {
-        return mmkv.decodeInt(key, defaultValue);
-    }
-
-    public static Double getDouble(String key) {
-        return mmkv.decodeDouble(key, 0.00);
-    }
-
-    public static Double getDouble(String key, double defaultValue) {
-        return mmkv.decodeDouble(key, defaultValue);
-    }
-
     public static Long getLong(String key) {
         return mmkv.decodeLong(key, 0L);
     }
 
-    public static Long getLong(String key, long defaultValue) {
-        return mmkv.decodeLong(key, defaultValue);
-    }
-
-    public static Boolean getBoolean(String key) {
-        return mmkv.decodeBool(key, false);
-    }
 
     public static Boolean getBoolean(String key, boolean defaultValue) {
         return mmkv.decodeBool(key, defaultValue);
     }
 
-    public static Float getFloat(String key) {
-        return mmkv.decodeFloat(key, 0F);
-    }
-
-    public static Float getFloat(String key, float defaultValue) {
-        return mmkv.decodeFloat(key, defaultValue);
-    }
-
-    public static byte[] getBytes(String key) {
-        return mmkv.decodeBytes(key);
-    }
-
-    public static byte[] getBytes(String key, byte[] defaultValue) {
-        return mmkv.decodeBytes(key, defaultValue);
-    }
-
-    public static String getString(String key) {
-        return mmkv.decodeString(key, "");
-    }
-
-    public static String getString(String key, String defaultValue) {
-        return mmkv.decodeString(key, defaultValue);
-    }
-
-    public static Set<String> getStringSet(String key) {
-        return mmkv.decodeStringSet(key, Collections.emptySet());
-    }
-
-    public static Parcelable getParcelable(String key) {
-        return mmkv.decodeParcelable(key, null);
-    }
-
-    
-    public static void removeKey(String key) {
-        mmkv.removeValueForKey(key);
-    }
-
-    
-    public static void clearAll() {
-        mmkv.clearAll();
-    }
 }
 

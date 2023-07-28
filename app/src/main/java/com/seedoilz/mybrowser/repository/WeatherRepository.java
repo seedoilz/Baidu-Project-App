@@ -28,7 +28,7 @@ public class WeatherRepository {
         return WeatherRepositoryHolder.mInstance;
     }
 
-    
+
     public void nowWeather(MutableLiveData<NowResponse> responseLiveData,
                            MutableLiveData<String> failed, String cityId) {
         String type = "实时天气-->";
@@ -40,7 +40,6 @@ public class WeatherRepository {
                             failed.postValue("实况天气数据为null，请检查城市ID是否正确。");
                             return;
                         }
-                        //请求接口成功返回数据，失败返回状态码
                         if (Constant.SUCCESS.equals(nowResponse.getCode())) {
                             responseLiveData.postValue(nowResponse);
                         } else {
@@ -56,9 +55,9 @@ public class WeatherRepository {
                 }));
     }
 
-    
+
     public void dailyWeather(MutableLiveData<DailyResponse> responseLiveData,
-                           MutableLiveData<String> failed, String cityId) {
+                             MutableLiveData<String> failed, String cityId) {
         String type = "天气预报-->";
         NetworkApi.createService(ApiService.class, ApiType.WEATHER).dailyWeather(cityId)
                 .compose(NetworkApi.applySchedulers(new BaseObserver<>() {
@@ -68,7 +67,6 @@ public class WeatherRepository {
                             failed.postValue("天气预报数据为null，请检查城市ID是否正确。");
                             return;
                         }
-                        //请求接口成功返回数据，失败返回状态码
                         if (Constant.SUCCESS.equals(dailyResponse.getCode())) {
                             responseLiveData.postValue(dailyResponse);
                         } else {
@@ -84,11 +82,9 @@ public class WeatherRepository {
                 }));
     }
 
-    
 
-    
     public void hourlyWeather(MutableLiveData<HourlyResponse> responseLiveData,
-                          MutableLiveData<String> failed, String cityId) {
+                              MutableLiveData<String> failed, String cityId) {
         String type = "逐小时天气预报-->";
         NetworkApi.createService(ApiService.class, ApiType.WEATHER).hourlyWeather(cityId)
                 .compose(NetworkApi.applySchedulers(new BaseObserver<>() {
@@ -98,7 +94,6 @@ public class WeatherRepository {
                             failed.postValue("逐小时天气预报数据为null，请检查城市ID是否正确。");
                             return;
                         }
-                        //请求接口成功返回数据，失败返回状态码
                         if (Constant.SUCCESS.equals(hourlyResponse.getCode())) {
                             responseLiveData.postValue(hourlyResponse);
                         } else {
