@@ -21,6 +21,7 @@ import com.seedoilz.mybrowser.MyBrowserApp;
 import com.seedoilz.mybrowser.activity.PublishNewsActivity;
 import com.seedoilz.mybrowser.R;
 import com.seedoilz.mybrowser.activity.SearchActivity;
+
 import com.seedoilz.mybrowser.activity.SplashActivity;
 import com.seedoilz.mybrowser.adapter.ArticleAdapter;
 import com.seedoilz.mybrowser.databinding.FragmentHomeBinding;

@@ -11,10 +11,7 @@ import java.net.ConnectException;
 
 import retrofit2.HttpException;
 
-/**
- * 异常处理
- * @author seedoilz
- */
+
 public class ExceptionHandle {
     //未授权
     private static final int UNAUTHORIZED = 401;
@@ -33,11 +30,7 @@ public class ExceptionHandle {
     //网关超时
     private static final int GATEWAY_TIMEOUT = 504;
 
-    /**
-     * 处理异常
-     * @param throwable
-     * @return
-     */
+    
     public static ResponseThrowable handleException(Throwable throwable) {
         //返回时抛出异常
         ResponseThrowable responseThrowable;
@@ -95,35 +88,21 @@ public class ExceptionHandle {
     }
 
 
-    /**
-     * 约定异常
-     */
+    
     public static class ERROR {
-        /**
-         * 未知错误
-         */
+        
         public static final int UNKNOWN = 1000;
-        /**
-         * 解析错误
-         */
+        
         public static final int PARSE_ERROR = 1001;
-        /**
-         * 网络错误
-         */
+        
         public static final int NETWORK_ERROR = 1002;
-        /**
-         * 协议出错
-         */
+        
         public static final int HTTP_ERROR = 1003;
 
-        /**
-         * 证书出错
-         */
+        
         public static final int SSL_ERROR = 1005;
 
-        /**
-         * 连接超时
-         */
+        
         public static final int TIMEOUT_ERROR = 1006;
     }
 

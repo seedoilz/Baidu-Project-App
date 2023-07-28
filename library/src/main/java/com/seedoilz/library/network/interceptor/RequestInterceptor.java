@@ -12,24 +12,16 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * 请求拦截器
- *
- * @author seedoilz
- */
+
 public class RequestInterceptor implements Interceptor {
-    /**
-     * 网络请求信息
-     */
+    
     private final INetworkRequiredInfo iNetworkRequiredInfo;
 
     public RequestInterceptor(INetworkRequiredInfo iNetworkRequiredInfo) {
         this.iNetworkRequiredInfo = iNetworkRequiredInfo;
     }
 
-    /**
-     * 拦截
-     */
+    
     @Override
     public Response intercept(Chain chain) throws IOException {
         //构建器

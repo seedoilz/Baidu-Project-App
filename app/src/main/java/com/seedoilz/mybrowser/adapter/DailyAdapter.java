@@ -14,9 +14,7 @@ import com.seedoilz.mybrowser.utils.WeatherUtil;
 
 import java.util.List;
 
-/**
- * 天气预报 数据适配器
- */
+
 public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> {
 
     private final List<DailyResponse.DailyBean> dailyBeans;

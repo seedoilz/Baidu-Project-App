@@ -24,7 +24,7 @@ import java.util.List;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
 
-    private List<Video> videos;
+    private final List<Video> videos;
 
     public VideoAdapter(List<Video> videos) {
         this.videos = videos;

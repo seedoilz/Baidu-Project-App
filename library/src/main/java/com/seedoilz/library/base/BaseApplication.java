@@ -4,9 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
-/**
- * 工程管理
- */
+
 public class BaseApplication extends Application {
 
     private static ActivityManager activityManager;

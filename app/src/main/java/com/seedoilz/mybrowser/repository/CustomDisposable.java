@@ -12,12 +12,7 @@ public class CustomDisposable {
 
     private static final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    /**
-     * Flowable
-     * @param flowable
-     * @param consumer
-     * @param <T>
-     */
+    
     public static <T> void addDisposable(Flowable<T> flowable, Consumer<T> consumer) {
         compositeDisposable.add(flowable
                 .subscribeOn(Schedulers.io())
@@ -25,12 +20,7 @@ public class CustomDisposable {
                 .subscribe(consumer));
     }
 
-    /**
-     * Completable
-     * @param completable
-     * @param action
-     * @param <T>
-     */
+    
     public static <T> void addDisposable(Completable completable, Action action) {
         compositeDisposable.add(completable
                 .subscribeOn(Schedulers.io())

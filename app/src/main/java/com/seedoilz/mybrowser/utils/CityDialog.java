@@ -18,9 +18,7 @@ import com.seedoilz.mybrowser.adapter.ProvinceAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 城市弹窗
- */
+
 public class CityDialog implements AdministrativeClickCallback {
 
     @SuppressLint("StaticFieldLeak")
@@ -58,16 +56,12 @@ public class CityDialog implements AdministrativeClickCallback {
         return mInstance;
     }
 
-    /**
-     * 设置选中城市回调
-     */
+    
     public void setSelectedCityCallback(SelectedCityCallback selectedCityCallback) {
         this.selectedCityCallback = selectedCityCallback;
     }
 
-    /**
-     * 显示弹窗
-     */
+    
     public void show() {
         dialog = new BottomSheetDialog(mContext);
         binding = DialogCityBinding.inflate(LayoutInflater.from(mContext), null, false);

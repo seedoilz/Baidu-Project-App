@@ -12,9 +12,7 @@ import com.seedoilz.library.network.ApiType;
 import com.seedoilz.library.network.NetworkApi;
 import com.seedoilz.library.network.observer.BaseObserver;
 
-/**
- * 搜索城市存储库，数据处理
- */
+
 @SuppressLint("CheckResult")
 public class SearchCityRepository {
 
@@ -28,13 +26,7 @@ public class SearchCityRepository {
         return SearchCityRepository.SearchCityRepositoryHolder.mInstance;
     }
 
-    /**
-     * 搜索城市
-     *
-     * @param responseLiveData 成功数据
-     * @param failed           错误信息
-     * @param cityName         城市名称
-     */
+    
     public void searchCity(MutableLiveData<SearchCityResponse> responseLiveData,
                            MutableLiveData<String> failed, String cityName) {
         String type = "搜索城市-->";

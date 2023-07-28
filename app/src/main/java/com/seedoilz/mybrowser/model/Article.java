@@ -5,9 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-/**
- * 首页文章保存实体
- */
+
 @Entity
 public class Article {
     @PrimaryKey(autoGenerate = true)

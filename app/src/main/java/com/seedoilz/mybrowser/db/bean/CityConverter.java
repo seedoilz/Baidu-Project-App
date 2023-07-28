@@ -9,9 +9,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 数据转换器
- */
+
 public class CityConverter {
 
     @TypeConverter

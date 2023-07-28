@@ -12,9 +12,7 @@ import com.seedoilz.mybrowser.utils.WeatherUtil;
 
 import java.util.List;
 
-/**
- * 逐小时天气预报 数据适配器
- */
+
 public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder> {
 
     private final List<HourlyResponse.HourlyBean> hourlyBeans;

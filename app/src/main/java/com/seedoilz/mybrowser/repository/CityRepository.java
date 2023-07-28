@@ -12,9 +12,7 @@ import java.util.List;
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 
-/**
- * 城市存储库，用于获取城市数据
- */
+
 public class CityRepository {
 
     private static final String TAG = CityRepository.class.getSimpleName();
@@ -27,18 +25,14 @@ public class CityRepository {
         return CityRepository.CityRepositoryHolder.mInstance;
     }
 
-    /**
-     * 添加城市数据
-     */
+    
     public void addCityData(List<Province> cityList) {
         Province[] provinceArray = cityList.toArray(new Province[0]);
         Completable insertAll = MyBrowserApp.getDb().provinceDao().insertAll(provinceArray);
         CustomDisposable.addDisposable(insertAll, () -> Log.d(TAG, "addCityData: 插入数据成功。"));
     }
 
-    /**
-     * 获取城市数据
-     */
+    
     public void getCityData(MutableLiveData<List<Province>> listMutableLiveData) {
         Flowable<List<Province>> listFlowable = MyBrowserApp.getDb().provinceDao().getAll();
         CustomDisposable.addDisposable(listFlowable, listMutableLiveData::postValue);

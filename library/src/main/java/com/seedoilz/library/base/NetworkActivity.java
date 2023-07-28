@@ -2,11 +2,7 @@ package com.seedoilz.library.base;
 
 import androidx.viewbinding.ViewBinding;
 
-/**
- * 访问网络的Activity
- *
- * @param <VB>
- */
+
 public abstract class NetworkActivity<VB extends ViewBinding> extends BaseVBActivity<VB> {
 
     @Override

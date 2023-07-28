@@ -3,11 +3,7 @@ package com.seedoilz.library.network.observer;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-/**
- * 基础Observer
- *
- * @author seedoilz
- */
+
 public abstract class BaseObserver<T> implements Observer<T> {
 
     //开始

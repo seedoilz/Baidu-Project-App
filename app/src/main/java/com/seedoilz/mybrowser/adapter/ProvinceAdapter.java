@@ -12,9 +12,7 @@ import com.seedoilz.mybrowser.utils.AdministrativeType;
 
 import java.util.List;
 
-/**
- * 省/直辖市 数据适配器
- */
+
 public class ProvinceAdapter extends RecyclerView.Adapter<ProvinceAdapter.ViewHolder> {
 
     private final List<Province> provinces;

@@ -5,19 +5,10 @@ import android.widget.ImageView;
 
 import com.seedoilz.mybrowser.R;
 
-/**
- * 天气工具类
- *
- * @author seedoilz
- */
+
 public class WeatherUtil {
 
-    /**
-     * 根据传入的状态码修改填入的天气图标
-     *
-     * @param weatherStateIcon 显示的ImageView
-     * @param code             天气状态码
-     */
+    
     public static void changeIcon(ImageView weatherStateIcon, int code) {
         switch (code) {
             //晴

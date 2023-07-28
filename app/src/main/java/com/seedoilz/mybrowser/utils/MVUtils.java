@@ -7,9 +7,7 @@ import com.tencent.mmkv.MMKV;
 import java.util.Collections;
 import java.util.Set;
 
-/**
- * MMKV工具类
- */
+
 public class MVUtils {
 
     private static MVUtils mInstance;
@@ -30,12 +28,7 @@ public class MVUtils {
         return mInstance;
     }
 
-    /**
-     * 写入基本数据类型缓存
-     *
-     * @param key    键
-     * @param object 值
-     */
+    
     public static void put(String key, Object object) {
         if (object instanceof String) {
             mmkv.encode(key, (String) object);
@@ -128,18 +121,12 @@ public class MVUtils {
         return mmkv.decodeParcelable(key, null);
     }
 
-    /**
-     * 移除某个key对
-     *
-     * @param key
-     */
+    
     public static void removeKey(String key) {
         mmkv.removeValueForKey(key);
     }
 
-    /**
-     * 清除所有key
-     */
+    
     public static void clearAll() {
         mmkv.clearAll();
     }

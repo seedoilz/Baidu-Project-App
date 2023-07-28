@@ -7,9 +7,7 @@ import androidx.room.TypeConverters;
 
 import java.util.List;
 
-/**
- * 城市数据  省/直辖市  → 市  →  区/县
- */
+
 @TypeConverters(CityConverter.class)
 @Entity
 public class Province {
@@ -75,14 +73,10 @@ public class Province {
         }
 
         public static class Area {
-            private String areaName;
+            private final String areaName;
 
             public String getAreaName() {
                 return areaName;
-            }
-
-            public void setAreaName(String areaName) {
-                this.areaName = areaName;
             }
 
             public Area(String countyName) {

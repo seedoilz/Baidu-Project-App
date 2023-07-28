@@ -14,10 +14,7 @@ import com.seedoilz.library.network.ApiType;
 import com.seedoilz.library.network.NetworkApi;
 import com.seedoilz.library.network.observer.BaseObserver;
 
-/**
- * 天气存储库，数据处理
- * (实况天气、7天天气预报)
- */
+
 @SuppressLint("CheckResult")
 public class WeatherRepository {
 
@@ -31,13 +28,7 @@ public class WeatherRepository {
         return WeatherRepositoryHolder.mInstance;
     }
 
-    /**
-     * 实况天气
-     *
-     * @param responseLiveData 成功数据
-     * @param failed           错误信息
-     * @param cityId           城市ID
-     */
+    
     public void nowWeather(MutableLiveData<NowResponse> responseLiveData,
                            MutableLiveData<String> failed, String cityId) {
         String type = "实时天气-->";
@@ -65,13 +56,7 @@ public class WeatherRepository {
                 }));
     }
 
-    /**
-     * 天气预报 7天
-     *
-     * @param responseLiveData 成功数据
-     * @param failed           错误信息
-     * @param cityId           城市ID
-     */
+    
     public void dailyWeather(MutableLiveData<DailyResponse> responseLiveData,
                            MutableLiveData<String> failed, String cityId) {
         String type = "天气预报-->";
@@ -99,21 +84,9 @@ public class WeatherRepository {
                 }));
     }
 
-    /**
-     * 生活指数
-     *
-     * @param responseLiveData 成功数据
-     * @param failed           错误信息
-     * @param cityId           城市ID
-     */
+    
 
-    /**
-     * 逐小时天气预报
-     *
-     * @param responseLiveData 成功数据
-     * @param failed           错误信息
-     * @param cityId           城市ID
-     */
+    
     public void hourlyWeather(MutableLiveData<HourlyResponse> responseLiveData,
                           MutableLiveData<String> failed, String cityId) {
         String type = "逐小时天气预报-->";

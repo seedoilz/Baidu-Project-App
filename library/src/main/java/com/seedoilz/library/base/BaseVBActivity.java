@@ -10,11 +10,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-/**
- * ViewBinding基类
- *
- * @param <VB>
- */
+
 public abstract class BaseVBActivity<VB extends ViewBinding> extends BaseActivity {
 
     protected VB binding;

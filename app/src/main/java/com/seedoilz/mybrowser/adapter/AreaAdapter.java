@@ -12,9 +12,7 @@ import com.seedoilz.mybrowser.utils.AdministrativeType;
 
 import java.util.List;
 
-/**
- * 区/县数据适配器
- */
+
 public class AreaAdapter extends RecyclerView.Adapter<AreaAdapter.ViewHolder> {
 
     private final List<Province.City.Area> areas;

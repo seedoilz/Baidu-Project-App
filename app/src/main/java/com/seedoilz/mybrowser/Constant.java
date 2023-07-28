@@ -1,8 +1,6 @@
 package com.seedoilz.mybrowser;
 
-/**
- * 常量
- */
+
 public class Constant {
 
     public final static String API_KEY = "8b08f60f3075464cb01ecbb9dc0a8d72";

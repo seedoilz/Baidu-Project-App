@@ -9,7 +9,7 @@ import com.seedoilz.mybrowser.model.Article;
 import java.util.List;
 
 public class HomeViewModel extends ViewModel {
-    private MutableLiveData<List<Article>> data;
+    private final MutableLiveData<List<Article>> data;
 
     private List<Article> articles;
     public HomeViewModel() {

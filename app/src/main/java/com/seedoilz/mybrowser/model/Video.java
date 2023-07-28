@@ -1,9 +1,9 @@
 package com.seedoilz.mybrowser.model;
 
 public class Video {
-    private String title;
-    private String thumbnailUrl;
-    private String videoUrl;
+    private final String title;
+    private final String thumbnailUrl;
+    private final String videoUrl;
 
     public Video(String title, String thumbnailUrl, String videoUrl) {
         this.title = title;

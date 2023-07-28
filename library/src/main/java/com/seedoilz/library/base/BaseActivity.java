@@ -32,20 +32,12 @@ public class BaseActivity extends AppCompatActivity {
         Toast.makeText(mContext, msg, Toast.LENGTH_LONG).show();
     }
 
-    /**
-     * 跳转页面
-     *
-     * @param clazz 目标页面
-     */
+    
     protected void jumpActivity(final Class<?> clazz) {
         startActivity(new Intent(mContext, clazz));
     }
 
-    /**
-     * 跳转页面并关闭当前页面
-     *
-     * @param clazz 目标页面
-     */
+    
     protected void jumpActivityFinish(final Class<?> clazz) {
         startActivity(new Intent(mContext, clazz));
         finish();
@@ -59,26 +51,17 @@ public class BaseActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v -> finish());
     }
 
-    /**
-     * 检查是有拥有某权限
-     *
-     * @param permission 权限名称
-     * @return true 有  false 没有
-     */
+    
     protected boolean hasPermission(String permission) {
         return checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
-     * 退出应用程序
-     */
+    
     protected void exitTheProgram() {
         BaseApplication.getActivityManager().finishAll();
     }
 
-    /**
-     * 全屏沉浸式
-     */
+    
     protected void setFullScreenImmersion() {
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

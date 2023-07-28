@@ -13,9 +13,7 @@ import com.seedoilz.mybrowser.db.dao.UserDao;
 import com.seedoilz.mybrowser.model.Article;
 import com.seedoilz.mybrowser.model.User;
 
-/**
- * Room数据库类
- */
+
 @Database(entities = {Province.class, Article.class, User.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -25,9 +23,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract ArticleDao articleDao();
     public abstract UserDao userDao();
 
-    /**
-     * 单例模式
-     */
+    
     public static AppDatabase getInstance(Context context) {
         if (mInstance == null) {
             synchronized (AppDatabase.class) {

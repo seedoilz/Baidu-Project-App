@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
 
 public class BarAdapter extends FragmentPagerAdapter {
-    private List<Fragment> mFragments;
-    private List<String> mtitle;
+    private final List<Fragment> mFragments;
+    private final List<String> mtitle;
 
     public BarAdapter(@NonNull FragmentManager fm, List<Fragment> mFragments, List<String> mtitle) {
         super(fm);

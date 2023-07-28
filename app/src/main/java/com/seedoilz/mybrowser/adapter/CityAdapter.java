@@ -12,9 +12,7 @@ import com.seedoilz.mybrowser.utils.AdministrativeType;
 
 import java.util.List;
 
-/**
- * 市数据适配器
- */
+
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 
     private final List<Province.City> cities;
