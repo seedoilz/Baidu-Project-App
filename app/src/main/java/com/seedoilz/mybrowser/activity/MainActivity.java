@@ -105,13 +105,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void videoLoad(){
-        // TODO
         // video标题数据获取
         ArrayList<Video> videos = new ArrayList<>();
         videos.add(new Video("Video 1", "https://i0.hdslb.com/bfs/archive/ffe9ca68c239b4f2523e43211ae1b516259ebd20.jpg@672w_378h_1c_!web-home-common-cover", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
-        videos.add(new Video("Video 2", "http://example.com/thumbnail2.jpg", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
-        videos.add(new Video("Video 3", "http://example.com/thumbnail3.jpg", "http://example.com/video3.mp4"));
-        videos.add(new Video("Video 4", "http://example.com/thumbnail4.jpg", "http://example.com/video4.mp4"));
+        videos.add(new Video("Video 2", "http://example.com/thumbnail2.jpg", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Base%20Profile%202023.06.18%20-%2013.03.17.02.DVR.mp4"));
+        videos.add(new Video("Video 3", "http://example.com/thumbnail3.jpg", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Valorant%202023.06.24%20-%2022.00.42.05.DVR.mp4"));
+        videos.add(new Video("Video 4", "http://example.com/thumbnail4.jpg", "https://typora-tes.oss-cn-shanghai.aliyuncs.com/ANYTHING/Apex%20Legends%202023.06.17%20-%2015.27.20.06.DVR.mp4"));
 
         VideoAdapter videoAdapter = new VideoAdapter(videos);
 
