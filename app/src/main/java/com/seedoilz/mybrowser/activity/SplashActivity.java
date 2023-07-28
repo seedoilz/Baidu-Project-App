@@ -39,7 +39,7 @@ public class SplashActivity extends NetworkActivity<ActivitySplashBinding> {
         checkingStartup();
         //检查今天第一次运行
         checkFirstRunToday();
-        onObserveData();
+//        onObserveData();
         new Handler().postDelayed(() -> jumpActivityFinish(WeatherActivity.class), 300);
     }
 
@@ -67,19 +67,21 @@ public class SplashActivity extends NetworkActivity<ActivitySplashBinding> {
 
     @Override
     protected void onObserveData() {
+        List<Province> provincess = loadCityData();
+        if (provincess != null) viewModel.addCityData(provincess);
         //城市数据返回
-        viewModel.listMutableLiveData.observe(this, provinceList -> {
-            if (provinceList.size() == 0) {
-                Log.d(TAG, "onObserveData: 第一次添加数据");
-                //没有保存过数据，只需要保存一次即可。
-                List<Province> provinces = loadCityData();
-                if (provinces != null) viewModel.addCityData(provinces);
-            } else {
-                Log.d(TAG, "onObserveData: 有数据了");
-            }
-        });
-        //错误信息返回
-        viewModel.failed.observe(this, this::showLongMsg);
+//        viewModel.listMutableLiveData.observe(this, provinceList -> {
+//            if (provinceList.size() == 0) {
+//                Log.d(TAG, "onObserveData: 第一次添加数据");
+//                //没有保存过数据，只需要保存一次即可。
+//                List<Province> provinces = loadCityData();
+//                if (provinces != null) viewModel.addCityData(provinces);
+//            } else {
+//                Log.d(TAG, "onObserveData: 有数据了");
+//            }
+//        });
+//        //错误信息返回
+//        viewModel.failed.observe(this, this::showLongMsg);
     }
 
     /**
